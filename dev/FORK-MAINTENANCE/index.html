@@ -583,7 +583,9 @@
 <p>This repository is a fork of <a href="https://github.com/FuzzyGrim/Yamtrack">FuzzyGrim/Yamtrack</a>.
 The fork carries its own features on top of upstream <code>dev</code>, so it needs to be
 regularly rebased to stay current with upstream fixes and releases.</p>
-<p>This document is the procedure to bring upstream changes into the fork.</p>
+<p>This document is the procedure to bring upstream changes into the fork.
+Day-to-day feature integration into <code>dev</code> is a separate workflow, documented
+in <a href="../BRANCHING/">BRANCHING.md</a>.</p>
 <h2 id="branches-and-remotes">Branches and remotes<a class="headerlink" href="#branches-and-remotes" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -611,6 +613,10 @@ regularly rebased to stay current with upstream fixes and releases.</p>
 </tr>
 </tbody>
 </table>
+<p>Note: <code>feat/add-api</code> exists on <code>origin</code> only, not in local checkouts, and the
+fork's real working baseline is <code>dev</code> (see <a href="../BRANCHING/">BRANCHING.md</a>).
+Treat the table entry above as the sync procedure's target, not as a
+description of where daily work happens.</p>
 <p>Never push to <code>upstream</code>, and never push <code>dev</code>/feature branches to it.</p>
 <h2 id="one-time-setup">One-time setup<a class="headerlink" href="#one-time-setup" title="Permanent link">&para;</a></h2>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/FuzzyGrim/Yamtrack.git

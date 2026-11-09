@@ -205,6 +205,7 @@ class MediaForm(forms.ModelForm):
     media_type = forms.CharField(widget=forms.HiddenInput(), required=True)
     source = forms.CharField(widget=forms.HiddenInput(), required=True)
     media_id = forms.CharField(widget=forms.HiddenInput(), required=True)
+
     class Meta:
         """Define fields and input types."""
 

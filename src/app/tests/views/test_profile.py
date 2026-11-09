@@ -280,7 +280,6 @@ class ProfileLayoutTests(TestCase):
         self.assertNotContains(response, "Add to tracker")
         self.assertNotContains(response, 'id="global-search"')
 
-
     def test_title_page_404s_outside_the_library(self):
         """Titles the person hasn't tracked or shelved aren't on their profile."""
         response = self.client.get("/ana/movie/tmdb/999999")

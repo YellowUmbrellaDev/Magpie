@@ -1606,7 +1606,7 @@ def restore_item_view(request, item_id):
 
 @login_not_required
 @require_GET
-def service_worker(request):
+def service_worker(request):  # noqa: ARG001 Django view signature
     """Serve the service worker from the site root so it controls every page.
 
     The query string carries what the static file cannot know: the cache
@@ -1625,7 +1625,7 @@ def service_worker(request):
 
 @login_not_required
 @require_GET
-def webmanifest(request):
+def webmanifest(request):  # noqa: ARG001 Django view signature
     """Serve the web app manifest with every path under the deployment prefix."""
     prefix = reverse("home").rstrip("/")
     path = Path(settings.STATICFILES_DIRS[0]) / "favicon" / "site.webmanifest"

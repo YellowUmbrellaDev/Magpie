@@ -23,7 +23,7 @@ nav = [
 variant = "modern"
 language = "en"
 logo = "assets/logo.png"
-favicon = "assets/logo.png"
+favicon = "assets/favicon.png"
 features = [
   "content.action.edit",
   "content.action.view",

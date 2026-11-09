@@ -17,6 +17,14 @@ Magpie is a self-hosted media tracker for movies, TV shows, anime, manga, video 
 
 Magpie is a fork of [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) by [FuzzyGrim](https://github.com/FuzzyGrim). Everything Yamtrack does well (providers, imports, calendar, notifications, media server integrations) comes from there. Magpie builds social tracking, discovery and an API on top of it and now follows its own roadmap. It won't be merged back upstream.
 
+<p align="center">
+  <a href="https://github.com/YellowUmbrellaDev/Magpie/blob/dev/docs/assets/magpie-9x16.mp4">
+    <img src="https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docs/assets/magpie-9x16-poster.webp" alt="Watch the 40-second Magpie video" width="270">
+  </a>
+  <br>
+  <sub>▶️ <a href="https://github.com/YellowUmbrellaDev/Magpie/blob/dev/docs/assets/magpie-9x16.mp4">Watch the 40-second tour</a></sub>
+</p>
+
 <!-- --8<-- [end:docs-index-intro] -->
 
 ## 📚 Documentation
@@ -24,6 +32,16 @@ Magpie is a fork of [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) by [FuzzyG
 The documentation lives in [`docs/`](docs/) and is published at [yellowumbrelladev.github.io/Magpie](https://yellowumbrelladev.github.io/Magpie/).
 
 <!-- --8<-- [start:docs-index-body] -->
+
+## 📸 Screenshots
+
+| Public profile | Groups |
+| --- | --- |
+| ![A public profile with avatar, links and shelves](https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docs/assets/screenshots/profile.webp) | ![A group page with its stats and in-progress shows](https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docs/assets/screenshots/group.webp) |
+| **Suggestions from friends** | **Home** |
+| ![Pending suggestions inbox with a movie recommended by a friend](https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docs/assets/screenshots/suggestions.webp) | ![Home with in-progress seasons and movies](https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docs/assets/screenshots/home.webp) |
+| **Your lists** | **Statistics** |
+| ![Movies list sorted by rating](https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docs/assets/screenshots/movies.webp) | ![Statistics with the consumption heatmap and totals](https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docs/assets/screenshots/statistics.webp) |
 
 ## ✨ Features
 

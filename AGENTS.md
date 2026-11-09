@@ -54,7 +54,7 @@ cd src && uv run manage.py test app.tests --parallel # one app or module
 uv run playwright install                            # once, for the browser tests
 ```
 
-No environment variables are needed for tests. `manage.py` switches to `config.test_settings`, which uses fakeredis instead of Redis. The database is SQLite unless `DB_HOST` is set. CI (`app-tests.yml`) runs only `app users integrations lists events`, so run the full suite before merging.
+No environment variables are needed for tests. `manage.py` switches to `config.test_settings`, which uses fakeredis instead of Redis. The database is SQLite unless `DB_HOST` is set. CI (`app-tests.yml`) runs the full suite, every app included.
 
 Lint and format (the `lint` group, as in `lint.yml`):
 

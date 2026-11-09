@@ -65,7 +65,7 @@ must instead listen on a port that is free inside that namespace. Set
 ```yaml
 services:
   magpie:
-    image: ghcr.io/sigterm-015/magpie
+    image: ghcr.io/yellowumbrelladev/magpie
     environment:
       # ... the rest of the Magpie variables
       - MAGPIE_INTERNAL_PORT=9117

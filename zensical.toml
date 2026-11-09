@@ -1,10 +1,10 @@
 [project]
 site_name = "Magpie Documentation"
-site_url = "https://sigterm-015.github.io/Magpie/"
+site_url = "https://yellowumbrelladev.github.io/Magpie/"
 site_author = "SIGTERM"
 site_description = "Magpie is a self hosted media tracker for movies, tv shows, anime, manga, video games, books, comics, and board games."
-repo_name = "SIGTERM-015/Magpie"
-repo_url = "https://github.com/SIGTERM-015/Magpie"
+repo_name = "YellowUmbrellaDev/Magpie"
+repo_url = "https://github.com/YellowUmbrellaDev/Magpie"
 copyright = "Copyright &copy; 2022 - 2026 FuzzyGrim, 2026 SIGTERM"
 edit_uri = "edit/dev/docs/"
 extra_css = ["stylesheets/extra.css"]
@@ -73,7 +73,7 @@ alias = true
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"
-link = "https://github.com/SIGTERM-015/Magpie"
+link = "https://github.com/YellowUmbrellaDev/Magpie"
 
 [project.markdown_extensions.admonition]
 [project.markdown_extensions.tables]

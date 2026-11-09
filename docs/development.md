@@ -14,7 +14,7 @@ This page covers working on Magpie from source.
 ### Clone the repository
 
 ```bash
-git clone https://github.com/SIGTERM-015/Magpie.git
+git clone https://github.com/YellowUmbrellaDev/Magpie.git
 cd Magpie
 ```
 

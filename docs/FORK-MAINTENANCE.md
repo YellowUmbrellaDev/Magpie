@@ -12,7 +12,7 @@ in [BRANCHING.md](BRANCHING.md).
 
 | Ref | Meaning |
 |---|---|
-| `origin` | The fork: `SIGTERM-015/Magpie`. Push targets live here only. |
+| `origin` | The fork: `YellowUmbrellaDev/Magpie`. Push targets live here only. |
 | `upstream` | The original project: `FuzzyGrim/Yamtrack`. Read-only. |
 | `dev` | Fork working baseline. |
 | `feat/add-api` | Fork integration branch that carries the custom API (`src/api/`). This is the branch that is rebased onto upstream. |
@@ -35,7 +35,7 @@ Verify:
 
 ```bash
 git remote -v
-# origin    git@github.com:SIGTERM-015/Magpie.git (fetch/push)
+# origin    git@github.com:YellowUmbrellaDev/Magpie.git (fetch/push)
 # upstream  https://github.com/FuzzyGrim/Yamtrack.git (fetch/push)
 ```
 

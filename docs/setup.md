@@ -15,7 +15,7 @@ The Docker setup uses the published Magpie image, so you do not need to clone th
 For the default SQLite setup:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/SIGTERM-015/Magpie/dev/docker-compose.yml
+curl -LO https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docker-compose.yml
 ```
 
 SQLite is enough for most personal installs. It stores the database in the local `db` directory created beside the Compose file, together with uploaded images (such as profile avatars) under `db/media`.
@@ -23,7 +23,7 @@ SQLite is enough for most personal installs. It stores the database in the local
 If you prefer PostgreSQL, download the PostgreSQL example instead:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/SIGTERM-015/Magpie/dev/docker-compose.postgres.yml
+curl -LO https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docker-compose.postgres.yml
 ```
 
 With PostgreSQL, uploaded images are kept in the local `media` directory, mounted at `/magpie/db/media`. Keep that volume: without it uploaded images are lost when the container is recreated.

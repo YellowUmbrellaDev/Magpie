@@ -1,7 +1,7 @@
 services:
   magpie:
     container_name: magpie
-    image: ghcr.io/sigterm-015/magpie
+    image: ghcr.io/yellowumbrelladev/magpie
     restart: unless-stopped
     depends_on:
       - db

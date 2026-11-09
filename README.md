@@ -6,8 +6,8 @@
 
 # Magpie
 
-![App Tests](https://github.com/SIGTERM-015/Magpie/actions/workflows/app-tests.yml/badge.svg)
-![Docker Image](https://github.com/SIGTERM-015/Magpie/actions/workflows/docker-image.yml/badge.svg)
+![App Tests](https://github.com/YellowUmbrellaDev/Magpie/actions/workflows/app-tests.yml/badge.svg)
+![Docker Image](https://github.com/YellowUmbrellaDev/Magpie/actions/workflows/docker-image.yml/badge.svg)
 ![GitHub](https://img.shields.io/badge/license-AGPL--3.0-blue)
 
 Magpie is a self-hosted media tracker for movies, TV shows, anime, manga, video games, books, comics and board games. You can track on your own or with friends, share a public profile, and let it pick what to watch next.
@@ -18,7 +18,7 @@ Magpie is a fork of [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) by [FuzzyG
 
 ## 📚 Documentation
 
-The documentation lives in [`docs/`](docs/) and is published at [sigterm-015.github.io/Magpie](https://sigterm-015.github.io/Magpie/).
+The documentation lives in [`docs/`](docs/) and is published at [yellowumbrelladev.github.io/Magpie](https://yellowumbrelladev.github.io/Magpie/).
 
 <!-- --8<-- [start:docs-index-body] -->
 
@@ -72,7 +72,7 @@ The documentation lives in [`docs/`](docs/) and is published at [sigterm-015.git
 Download the `docker-compose.yml` file from the repository, update the environment values, and start Magpie:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/SIGTERM-015/Magpie/dev/docker-compose.yml
+curl -LO https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/docker-compose.yml
 docker compose up -d
 ```
 
@@ -90,7 +90,7 @@ See the [development docs](docs/development.md).
 
 ### 🐛 Bugs and ideas
 
-Open an [issue](https://github.com/SIGTERM-015/Magpie/issues). Steps to reproduce make bugs much faster to fix.
+Open an [issue](https://github.com/YellowUmbrellaDev/Magpie/issues). Steps to reproduce make bugs much faster to fix.
 
 ### 🧪 Contributing
 

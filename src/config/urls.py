@@ -15,9 +15,10 @@ from django.contrib.auth.decorators import login_not_required
 from django.urls import include, path
 from django.views.generic import RedirectView
 from django.views.static import serve
-from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from drf_spectacular.views import SpectacularSwaggerView
 from health_check.views import HealthCheckView
 
+from api.views import OpenApiSchemaView
 from app import views as app_views
 from config.health import HEALTH_CHECKS
 
@@ -34,7 +35,7 @@ urlpatterns = [
         login_not_required(HealthCheckView.as_view(checks=HEALTH_CHECKS)),
     ),
     path("api/v1/", include("api.urls")),
-    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/schema/", OpenApiSchemaView.as_view(), name="schema"),
     path(
         "api/docs/",
         SpectacularSwaggerView.as_view(url_name="schema"),

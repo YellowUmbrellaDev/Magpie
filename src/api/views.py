@@ -1,6 +1,9 @@
 import asyncio
+import functools
 from http import HTTPStatus as HTTP  # noqa: N814
+from pathlib import Path
 
+import yaml
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.cache import cache
@@ -605,6 +608,28 @@ class InfoView(drf_views.APIView):
             context={"request": request},
         )
         return Response(response_data, status=HTTP.OK)
+
+
+@functools.cache
+def _openapi_document():
+    """Parse the hand-written OpenAPI document shipped with the API app."""
+    return yaml.safe_load(Path(__file__).with_name("openapi.yaml").read_text())
+
+
+# /api/schema/
+class OpenApiSchemaView(drf_views.APIView):
+    """Serve the OpenAPI document, with this instance as its only server."""
+
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request):
+        """Return the OpenAPI document as JSON."""
+        document = {
+            **_openapi_document(),
+            "servers": [{"url": request.build_absolute_uri("/").rstrip("/")}],
+        }
+        return Response(document, status=HTTP.OK)
 
 
 # /api/v1/lists/

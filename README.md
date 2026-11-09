@@ -80,7 +80,7 @@ The documentation lives in [`docs/`](docs/) and is published at [yellowumbrellad
 - 🦀 [Jellyfin](https://jellyfin.org/), [Plex](https://plex.tv/) and [Emby](https://emby.media/) webhooks track what you watch automatically, plus a generic scrobble webhook for anything else.
 - 📥 Import from [Trakt](https://trakt.tv/), [Simkl](https://simkl.com/), [MyAnimeList](https://myanimelist.net/), [AniList](https://anilist.co/), [Kitsu](https://kitsu.app/), [Letterboxd](https://letterboxd.com/), [GoodReads](https://www.goodreads.com/), [Steam](https://store.steampowered.com/), [IMDb](https://www.imdb.com/) and [HowLongToBeat](https://howlongtobeat.com/), with periodic automatic imports where the source allows it.
 - 📊 Export everything to CSV and import it back. Yamtrack CSV backups import as-is. You can also export to Letterboxd.
-- 🔌 **REST API** (`/api/v1/`) with an OpenAPI schema ([`openapi.yaml`](openapi.yaml)) and named personal tokens with separate read and write scopes that you can revoke at any time.
+- 🔌 **REST API** (`/api/v1/`) with an OpenAPI schema ([`src/api/openapi.yaml`](src/api/openapi.yaml), served at `/api/schema/`) and named personal tokens with separate read and write scopes that you can revoke at any time.
 
 ### Self-hosted
 

@@ -3490,7 +3490,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ErrorResponse"
-  /api/v1/media/{media_type}/{source}/{media_id}/{season_number}/{episode_number}/lists/{list_id}:
+  /api/v1/media/{media_type}/{source}/{media_id}/{season_number}/{episode_number}/lists/{list_id}/:
     delete:
       tags:
         - lists

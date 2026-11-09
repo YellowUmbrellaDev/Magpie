@@ -16,13 +16,13 @@ The Django project lives in `src/`, where `manage.py` is. Tests live in each app
 - `groups/`: shared group progress and discards.
 - `lists/`: user lists and their items.
 - `integrations/`: imports, exports and media-server webhooks.
-- `api/`: REST API mounted at `/api/v1/`, serializers, token auth.
+- `api/`: REST API mounted at `/api/v1/`, serializers, token auth. `api/openapi.yaml` is the hand-written spec, served at `/api/schema/`; update it with every route change (`api/tests/test_openapi.py` fails on drift).
 - `events/`: release calendar and notifications.
 - `templates/`: Django templates, with per-app subfolders and `base.html`.
 - `static/`: assets. `static/css/input.css` is the Tailwind source. `static/css/main.css` is the built stylesheet and is committed.
 - `db/`: runtime SQLite database and uploads (`db/media/`). Never commit it.
 
-At the repo root: `docs/` (Zensical site), `.github/workflows/`, `Dockerfile`, `docker-compose*.yml`, `Procfile`, `pyproject.toml` (dependencies, ruff, djlint), `openapi.yaml`.
+At the repo root: `docs/` (Zensical site), `.github/workflows/`, `Dockerfile`, `docker-compose*.yml`, `Procfile`, `pyproject.toml` (dependencies, ruff, djlint).
 
 ## Setup
 

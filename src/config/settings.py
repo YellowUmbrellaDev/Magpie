@@ -146,7 +146,6 @@ REST_FRAMEWORK = {
         "api.authentication.APIKeyAuthentication",
     ],
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     # Throttle counters live in the default cache (Redis, see CACHES below),
     # so limits are shared across workers and survive process restarts.
     "DEFAULT_THROTTLE_CLASSES": [

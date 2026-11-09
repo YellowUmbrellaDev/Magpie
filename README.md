@@ -1,7 +1,7 @@
 <!-- --8<-- [start:docs-index-intro] -->
 
 <p align="center">
-  <img src="src/static/favicon/logo.svg" alt="Magpie" width="140">
+  <img src="https://raw.githubusercontent.com/YellowUmbrellaDev/Magpie/dev/src/static/favicon/logo.svg" alt="Magpie" width="140">
 </p>
 
 # Magpie

@@ -14,8 +14,8 @@ This page covers working on Magpie from source.
 ### Clone the repository
 
 ```bash
-git clone https://github.com/FuzzyGrim/Yamtrack.git
-cd Yamtrack
+git clone https://github.com/SIGTERM-015/Magpie.git
+cd Magpie
 ```
 
 ### Start Redis

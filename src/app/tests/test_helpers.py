@@ -33,22 +33,22 @@ class HelpersTest(TestCase):
         # Test zero
         self.assertEqual(minutes_to_hhmm(0), "0min")
 
-    @override_settings(URLS=["https://yamtrack.example.com:8924"])
+    @override_settings(URLS=["https://magpie.example.com:8924"])
     def test_get_configured_app_url_from_urls(self):
         """Test configured public origin from URLS."""
         self.assertEqual(
             get_configured_app_url(),
-            "https://yamtrack.example.com:8924",
+            "https://magpie.example.com:8924",
         )
 
-    @override_settings(URLS=["https://yamtrack.example.com"])
+    @override_settings(URLS=["https://magpie.example.com"])
     def test_build_absolute_app_url_uses_configured_origin(self):
         """Test absolute URL construction behind reverse proxies."""
         request = MagicMock()
 
         result = build_absolute_app_url(request, "/import/trakt/private")
 
-        self.assertEqual(result, "https://yamtrack.example.com/import/trakt/private")
+        self.assertEqual(result, "https://magpie.example.com/import/trakt/private")
         request.build_absolute_uri.assert_not_called()
 
     @override_settings(URLS=[])

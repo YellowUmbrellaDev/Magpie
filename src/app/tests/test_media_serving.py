@@ -11,7 +11,7 @@ class MediaServingConfig(SimpleTestCase):
     """Uploads must survive container recreation and be served without DEBUG."""
 
     def test_media_root_is_inside_the_persisted_db_volume(self):
-        """docker-compose only persists /yamtrack/db, so uploads must live there."""
+        """docker-compose only persists /magpie/db, so uploads must live there."""
         self.assertEqual(
             Path(settings.MEDIA_ROOT), Path(settings.BASE_DIR) / "db" / "media"
         )
@@ -21,5 +21,5 @@ class MediaServingConfig(SimpleTestCase):
         nginx = (REPO_ROOT / "nginx.conf").read_text()
         block = re.search(r"location /media/ \{(.*?)\}", nginx, re.DOTALL)
         self.assertIsNotNone(block)
-        self.assertIn("alias /yamtrack/db/media/;", block.group(1))
+        self.assertIn("alias /magpie/db/media/;", block.group(1))
         self.assertIn('X-Content-Type-Options "nosniff"', block.group(1))

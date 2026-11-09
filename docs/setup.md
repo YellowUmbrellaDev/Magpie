@@ -15,7 +15,7 @@ The Docker setup uses the published Magpie image, so you do not need to clone th
 For the default SQLite setup:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/FuzzyGrim/Yamtrack/release/docker-compose.yml
+curl -LO https://raw.githubusercontent.com/SIGTERM-015/Magpie/dev/docker-compose.yml
 ```
 
 SQLite is enough for most personal installs. It stores the database in the local `db` directory created beside the Compose file, together with uploaded images (such as profile avatars) under `db/media`.
@@ -23,10 +23,10 @@ SQLite is enough for most personal installs. It stores the database in the local
 If you prefer PostgreSQL, download the PostgreSQL example instead:
 
 ```bash
-curl -LO https://raw.githubusercontent.com/FuzzyGrim/Yamtrack/release/docker-compose.postgres.yml
+curl -LO https://raw.githubusercontent.com/SIGTERM-015/Magpie/dev/docker-compose.postgres.yml
 ```
 
-With PostgreSQL, uploaded images are kept in the local `media` directory, mounted at `/yamtrack/db/media`. Keep that volume: without it uploaded images are lost when the container is recreated.
+With PostgreSQL, uploaded images are kept in the local `media` directory, mounted at `/magpie/db/media`. Keep that volume: without it uploaded images are lost when the container is recreated.
 
 ## 2) Update the environment values
 
@@ -39,7 +39,7 @@ SECRET=longstring
 Use a long random value for `SECRET`. If you are running Magpie behind a reverse proxy, also set `URLS` to the public origin:
 
 ```yaml
-URLS=https://yamtrack.mydomain.com
+URLS=https://magpie.mydomain.com
 ```
 
 The URL must include the protocol (`https` or `http`) and should not include a trailing slash or application path. Multiple origins can be separated with commas.
@@ -80,9 +80,9 @@ Example:
 
 ```yaml
 services:
-  yamtrack:
+  magpie:
     environment:
-      - URLS=https://yamtrack.mydomain.com
+      - URLS=https://magpie.mydomain.com
 ```
 
 If you see `403 Forbidden` behind a proxy, check that `URLS` exactly matches the public URL you use in the browser.
@@ -92,11 +92,11 @@ If you see `403 Forbidden` behind a proxy, check that `URLS` exactly matches the
 Check the Magpie container logs:
 
 ```bash
-docker logs -f yamtrack
+docker logs -f magpie
 ```
 
 Check the Redis container logs:
 
 ```bash
-docker logs -f yamtrack-redis
+docker logs -f magpie-redis
 ```

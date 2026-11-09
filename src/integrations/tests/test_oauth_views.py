@@ -16,7 +16,7 @@ class TraktOAuthViewTests(TestCase):
         self.user = get_user_model().objects.create_user(**credentials)
         self.client.login(**credentials)
 
-    @override_settings(URLS=["https://yamtrack.example.com:8924"], TRAKT_API="client")
+    @override_settings(URLS=["https://magpie.example.com:8924"], TRAKT_API="client")
     def test_trakt_oauth_uses_configured_public_url(self):
         """Test Trakt authorization uses the configured public URL."""
         response = self.client.post(
@@ -32,16 +32,16 @@ class TraktOAuthViewTests(TestCase):
         self.assertEqual(query["client_id"], ["client"])
         self.assertEqual(
             query["redirect_uri"],
-            ["https://yamtrack.example.com:8924/import/trakt/private"],
+            ["https://magpie.example.com:8924/import/trakt/private"],
         )
 
         state = self.client.session[query["state"][0]]
         self.assertEqual(
             state["redirect_uri"],
-            "https://yamtrack.example.com:8924/import/trakt/private",
+            "https://magpie.example.com:8924/import/trakt/private",
         )
 
-    @override_settings(URLS=["https://yamtrack.example.com:8924"])
+    @override_settings(URLS=["https://magpie.example.com:8924"])
     @patch("integrations.views.tasks.import_trakt.delay")
     @patch("integrations.views.trakt.handle_oauth_callback")
     def test_trakt_callback_reuses_stored_redirect_uri(
@@ -50,7 +50,7 @@ class TraktOAuthViewTests(TestCase):
         mock_import_trakt,
     ):
         """Test the token exchange and import task reuse the original redirect URI."""
-        redirect_uri = "https://yamtrack.example.com:8924/import/trakt/private"
+        redirect_uri = "https://magpie.example.com:8924/import/trakt/private"
         session = self.client.session
         session["state-token"] = {
             "mode": "new",

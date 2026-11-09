@@ -3,7 +3,7 @@
 Most media import sources can be used directly by entering your username or importing via CSV without any additional configuration. This guide covers only those services that may require special setup for certain scenarios.
 
 !!! note
-    The import process matches your data with the IDs from the sources that Yamtrack uses. Each media type uses different sources, so make sure to have them properly configured. See [Media Sources](env-variables.md#media-sources) for more information.
+    The import process matches your data with the IDs from the sources that Magpie uses. Each media type uses different sources, so make sure to have them properly configured. See [Media Sources](env-variables.md#media-sources) for more information.
 
 ## Trakt
 
@@ -82,18 +82,18 @@ Steam import requires a Steam API key and your Steam ID 64.
 - **Steam ID 64**: Instead of your Steam username, you must provide your Steam ID 64. You can find it on your Steam account details page under your username.
 - **Profile Visibility**: Your Steam profile must be public if the API key you are using is not linked to the Steam ID you are requesting.
 
-## Yamtrack CSV format
+## Magpie CSV format
 
-Use this format to bulk-import media into YamTrack. Every row represents a single media instance.
+Use this format to bulk-import media into Magpie. Every row represents a single media instance. This is the same CSV that Magpie exports, and CSV backups exported from Yamtrack are compatible too.
 
 The order of rows matters for TV data: import `tv` rows first, then `season` rows, then `episode` rows. Episodes depend on their parent season, and seasons depend on their parent TV show.
 
 | Column Title   | Required? | Example Value                                  | Notes                                                                                                                                                                           |
 | -------------- | --------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| media_id       | No        | 12345                                          | ID of the item on the chosen provider. Must be unique per `(source, media_type)`. Leave blank to let YamTrack fetch the title from the provider automatically with the `title`. |
+| media_id       | No        | 12345                                          | ID of the item on the chosen provider. Must be unique per `(source, media_type)`. Leave blank to let Magpie fetch the title from the provider automatically with the `title`. |
 | source         | **Yes**   | tmdb                                           | One of: `tmdb`, `mal`, `mangaupdates`, `igdb`, `openlibrary`, `hardcover`, `comicvine`, `manual`.                                                                               |
 | media_type     | **Yes**   | movie                                          | One of: `tv`, `season`, `episode`, `movie`, `anime`, `manga`, `game`, `book`, `comic`. For TV data, rows must be ordered as `tv`, then `season`, then `episode`.                |
-| title          | No        | Inception                                      | Leave blank to let YamTrack fetch the title from the provider automatically with the `media_id`.                                                                                |
+| title          | No        | Inception                                      | Leave blank to let Magpie fetch the title from the provider automatically with the `media_id`.                                                                                |
 | image          | No        | <https://image.tmdb.org/t/p/w500/qmDpIH...jpg> | Public poster/cover URL. Leave blank to auto-fetch from the provider automatically with the `media_id` or `title`.                                                              |
 | season_number  | Cond.     | 2                                              | Required when `media_type = season`; also required (together with `episode_number`) when `media_type = episode`.                                                                |
 | episode_number | Cond.     | 5                                              | Required when `media_type = episode`; ignored otherwise.                                                                                                                        |

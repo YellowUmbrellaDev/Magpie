@@ -1,6 +1,6 @@
 # Environment Variables
 
-This page outlines the environment variables used in the YamTrack project.
+This page outlines the environment variables used in the Magpie project.
 
 ## Media Sources
 
@@ -26,13 +26,13 @@ See [media-imports](media-imports.md).
 
 | Name               | Notes                                                                                                                                                                                                |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `REDIS_URL`        | Default to `redis://localhost:6379`. Set this to your Redis server URL, in the format of `redis://{service}:{port}`. In the Docker Compose examples this is `redis://redis:6379`. If Magpie shares a Docker network with another container or service named `redis`, use the Magpie Redis container name instead: `redis://yamtrack-redis:6379`. |
+| `REDIS_URL`        | Default to `redis://localhost:6379`. Set this to your Redis server URL, in the format of `redis://{service}:{port}`. In the Docker Compose examples this is `redis://redis:6379`. If Magpie shares a Docker network with another container or service named `redis`, use the Magpie Redis container name instead: `redis://magpie-redis:6379`. |
 | `CELERY_REDIS_URL` | Default to the value of `REDIS_URL`. Set this to your Redis server URL for Celery if you need a different value than `REDIS_URL`.                                                                    |
 | `REDIS_PREFIX`     | Optional prefix for Redis keys and channels to enable isolation when sharing a Redis instance across multiple applications. Useful for ACL-based permission control.                                 |
 | `SECRET`           | [Secret key](https://docs.djangoproject.com/en/stable/ref/settings/#secret-key) used for cryptographic signing. Should be a random string.                                                           |
-| `URLS`             | Shortcut to set both the `CSRF` and `ALLOWED_HOSTS` settings. Comma-separated list of URLs (e.g., `https://yamtrack.mydomain.com`).                                                                  |
-| `ALLOWED_HOSTS`    | Comma-separated list of host/domain names that this Django site can serve (e.g., `yamtrack.mydomain.com`). Default to `*` for all hosts.                                                             |
-| `CSRF`             | Comma-separated list of trusted origins for `POST` requests when using reverse proxies (e.g., `https://yamtrack.mydomain.com`).                                                                      |
+| `URLS`             | Shortcut to set both the `CSRF` and `ALLOWED_HOSTS` settings. Comma-separated list of URLs (e.g., `https://magpie.mydomain.com`).                                                                  |
+| `ALLOWED_HOSTS`    | Comma-separated list of host/domain names that this Django site can serve (e.g., `magpie.mydomain.com`). Default to `*` for all hosts.                                                             |
+| `CSRF`             | Comma-separated list of trusted origins for `POST` requests when using reverse proxies (e.g., `https://magpie.mydomain.com`).                                                                      |
 | `REGISTRATION`     | Default to `True`. Set to `False` to disable user registration.                                                                                                                                      |
 | `DEBUG`            | Default to `False`. Set to `True` for debugging.                                                                                                                                                     |
 | `ADMIN_ENABLED`    | Default to `False`. Set to `True` to enable the Django admin interface.                                                                                                                              |
@@ -52,23 +52,23 @@ See [media-imports](media-imports.md).
 | `ACCOUNT_LOGOUT_REDIRECT_URL`   | Absolute URL to redirect users after logout. Useful for OpenID Connect providers to ensure complete logout from the external authentication provider.                 |
 | `SOCIALACCOUNT_ONLY`            | Default to `False`. Set to `True` to disable local authentication when using social authentication only.                                                              |
 | `REDIRECT_LOGIN_TO_SSO`         | Default to `False`. Set to `True` to automatically redirect (using JavaScript) to the SSO provider when there's only one available. Useful for single sign-on setups. |
-| `YAMTRACK_AUTO_LOGIN_USERNAME`  | Default to `None`, which disables this feature. Specify a username to automatically login with the selected user. The user needs to be existing and active.           |
-| `YAMTRACK_INTERNAL_PORT`        | ADVANCED. Port nginx listens on inside the container. Default to `8000`. Only needed when `8000` is already taken, typically when the container shares another service's network namespace (e.g. `network_mode: service:gluetun`). See the example below. |
+| `MAGPIE_AUTO_LOGIN_USERNAME`  | Default to `None`, which disables this feature. Specify a username to automatically login with the selected user. The user needs to be existing and active.           |
+| `MAGPIE_INTERNAL_PORT`        | ADVANCED. Port nginx listens on inside the container. Default to `8000`. Only needed when `8000` is already taken, typically when the container shares another service's network namespace (e.g. `network_mode: service:gluetun`). See the example below. |
 
 ### Example: sharing a network namespace (e.g. gluetun)
 
 When a container joins another service's network namespace via
 `network_mode: service:<name>`, it can no longer publish its own `ports:` — it
 must instead listen on a port that is free inside that namespace. Set
-`YAMTRACK_INTERNAL_PORT` to change what nginx listens on:
+`MAGPIE_INTERNAL_PORT` to change what nginx listens on:
 
 ```yaml
 services:
-  yamtrack:
-    image: ghcr.io/fuzzygrim/yamtrack
+  magpie:
+    image: ghcr.io/sigterm-015/magpie
     environment:
       # ... the rest of the Magpie variables
-      - YAMTRACK_INTERNAL_PORT=9117
+      - MAGPIE_INTERNAL_PORT=9117
     network_mode: service:gluetun
     depends_on:
       - gluetun
@@ -84,7 +84,7 @@ services:
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `HEALTHCHECK_CELERY_PING_TIMEOUT` | Default to `1`. Increases the timeout for the health check ping to Celery. This is useful for slow connections. |
 
-## PostgreSQL Environment Variables (YamTrack Container)
+## PostgreSQL Environment Variables (Magpie Container)
 
 | Name               | Notes                                                                                                    |
 | ------------------ | --------------------------------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ services:
 
 **Note:** Check the example `docker-compose.postgres.yml` in the root directory of the repo for a PostgreSQL configuration example.
 
-### External PostgreSQL database with SSL (YamTrack Container)
+### External PostgreSQL database with SSL (Magpie Container)
 
 | Name               | Notes                                                                                                                                                                                                                                         |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -107,7 +107,7 @@ services:
 
 ## Docker Secrets Support
 
-YamTrack supports reading sensitive configuration values from Docker secrets files. The following environment variables can alternatively be provided as secrets:
+Magpie supports reading sensitive configuration values from Docker secrets files. The following environment variables can alternatively be provided as secrets:
 
 | Environment Variable      | Secret File Equivalent         |
 | ------------------------- | ------------------------------ |
@@ -130,7 +130,7 @@ YamTrack supports reading sensitive configuration values from Docker secrets fil
 
 | Name       | Notes                                                                                                                  |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `BASE_URL` | To host YamTrack under a subpath like `https://example.com/yamtrack`, set this to `/yamtrack`, without trailing slash. |
+| `BASE_URL` | To host Magpie under a subpath like `https://example.com/magpie`, set this to `/magpie`, without trailing slash. |
 
 ## Self-signed certificates
 

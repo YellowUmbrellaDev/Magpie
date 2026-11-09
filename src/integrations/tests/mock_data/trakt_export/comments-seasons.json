@@ -42,15 +42,15 @@
         "completed_count": 0
       },
       "user": {
-        "username": "yamtrack_user",
+        "username": "magpie_user",
         "private": false,
         "deleted": false,
-        "name": "yamtrack_user",
+        "name": "magpie_user",
         "vip": false,
         "vip_ep": false,
         "director": false,
         "ids": {
-          "slug": "yamtrack_user",
+          "slug": "magpie_user",
           "trakt": 1000001
         }
       }
@@ -99,15 +99,15 @@
         "completed_count": 0
       },
       "user": {
-        "username": "yamtrack_user",
+        "username": "magpie_user",
         "private": false,
         "deleted": false,
-        "name": "yamtrack_user",
+        "name": "magpie_user",
         "vip": false,
         "vip_ep": false,
         "director": false,
         "ids": {
-          "slug": "yamtrack_user",
+          "slug": "magpie_user",
           "trakt": 1000001
         }
       }

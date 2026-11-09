@@ -13,7 +13,7 @@ ENV UV_COMPILE_BYTECODE=1
 # Copy from cache instead of symlinking (cache is discarded with the builder)
 ENV UV_LINK_MODE=copy
 
-WORKDIR /yamtrack
+WORKDIR /magpie
 
 COPY ./pyproject.toml ./pyproject.toml
 COPY ./uv.lock ./uv.lock
@@ -31,9 +31,9 @@ ARG VERSION=dev
 # Set it as an environment variable
 ENV VERSION=$VERSION
 # Put the virtualenv on PATH so python/gunicorn/celery/supervisord resolve directly
-ENV PATH="/yamtrack/.venv/bin:$PATH"
+ENV PATH="/magpie/.venv/bin:$PATH"
 
-WORKDIR /yamtrack
+WORKDIR /magpie
 
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./supervisord.conf /etc/supervisord.conf
@@ -50,16 +50,16 @@ RUN apk add --no-cache nginx shadow \
     && mkdir -p /var/lib/nginx/body
 
 # Copy the pre-built virtualenv from the builder stage
-COPY --from=builder /yamtrack/.venv /yamtrack/.venv
+COPY --from=builder /magpie/.venv /magpie/.venv
 
 # Django app
 COPY src ./
 RUN python manage.py collectstatic --noinput
 
-# Default nginx listen port; overridden at runtime with YAMTRACK_INTERNAL_PORT
+# Default nginx listen port; overridden at runtime with MAGPIE_INTERNAL_PORT
 EXPOSE 8000
 
 CMD ["/entrypoint.sh"]
 
 HEALTHCHECK --interval=45s --timeout=15s --start-period=30s --retries=5 \
-    CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:${YAMTRACK_INTERNAL_PORT:-8000}/health/ || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:${MAGPIE_INTERNAL_PORT:-8000}/health/ || exit 1

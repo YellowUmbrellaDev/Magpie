@@ -1,4 +1,4 @@
-"""Django settings for Yamtrack project."""
+"""Django settings for Magpie project."""
 
 import json
 import sys
@@ -188,8 +188,8 @@ MIDDLEWARE = [
     "api.middleware.ApiJsonErrorMiddleware",
 ]
 
-YAMTRACK_AUTO_LOGIN_USERNAME = config("YAMTRACK_AUTO_LOGIN_USERNAME", default=None)
-if YAMTRACK_AUTO_LOGIN_USERNAME:
+MAGPIE_AUTO_LOGIN_USERNAME = config("MAGPIE_AUTO_LOGIN_USERNAME", default=None)
+if MAGPIE_AUTO_LOGIN_USERNAME:
     _index = MIDDLEWARE.index("django.contrib.auth.middleware.AuthenticationMiddleware")
     # This allows auto-login if the user is not already authenticated.
     MIDDLEWARE.insert(_index + 1, "app.middleware.AutoLoginMiddleware")
@@ -393,7 +393,7 @@ LOGIN_REDIRECT_URL = "home"
 
 AUTH_USER_MODEL = "users.User"
 
-# Yamtrack settings
+# Magpie settings
 
 # For CSV imports and the Trakt export archive
 FILE_UPLOAD_MAX_MEMORY_SIZE = 50 * 1024 * 1024  # 50 MB

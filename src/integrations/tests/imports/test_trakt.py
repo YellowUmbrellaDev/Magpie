@@ -318,14 +318,14 @@ class ImportTrakt(TestCase):
 
         access_token = get_access_token(
             encrypted_token,
-            redirect_uri="https://yamtrack.example.com/import/trakt/private",
+            redirect_uri="https://magpie.example.com/import/trakt/private",
         )
 
         self.assertEqual(access_token, "access-token")
         params = mock_api_request.call_args.kwargs["params"]
         self.assertEqual(
             params["redirect_uri"],
-            "https://yamtrack.example.com/import/trakt/private",
+            "https://magpie.example.com/import/trakt/private",
         )
 
 
@@ -583,7 +583,7 @@ class ImportTraktSampleExport(TestCase):
         """The username comes from the sample user-profile.json."""
         export_importer = TraktExportImporter(build_fixture_archive(), self.user, "new")
 
-        self.assertEqual(export_importer.username, "yamtrack_user")
+        self.assertEqual(export_importer.username, "magpie_user")
 
     def test_history_is_imported_oldest_first(self):
         """The export lists history newest first, so entries are reversed."""

@@ -1,7 +1,7 @@
 services:
-  yamtrack:
-    container_name: yamtrack
-    image: ghcr.io/fuzzygrim/yamtrack
+  magpie:
+    container_name: magpie
+    image: ghcr.io/sigterm-015/magpie
     restart: unless-stopped
     depends_on:
       - db
@@ -11,29 +11,29 @@ services:
       - SECRET=longstring
       - REDIS_URL=redis://redis:6379
       - DB_HOST=db
-      - DB_NAME=yamtrack
-      - DB_USER=yamtrack
-      - DB_PASSWORD=yamtrack
+      - DB_NAME=magpie
+      - DB_USER=magpie
+      - DB_PASSWORD=magpie
       - DB_PORT=5432
     volumes:
       # Uploaded images. The database lives in Postgres.
-      - ./media:/yamtrack/db/media
+      - ./media:/magpie/db/media
     ports:
       - "8000:8000"
 
   db:
     image: postgres:16-alpine
-    container_name: yamtrack-db
+    container_name: magpie-db
     environment:
-      - POSTGRES_DB=yamtrack
-      - POSTGRES_USER=yamtrack
-      - POSTGRES_PASSWORD=yamtrack
+      - POSTGRES_DB=magpie
+      - POSTGRES_USER=magpie
+      - POSTGRES_PASSWORD=magpie
     volumes:
       - ./db:/var/lib/postgresql/data
     restart: unless-stopped
 
   redis:
-    container_name: yamtrack-redis
+    container_name: magpie-redis
     image: redis:8-alpine
     restart: unless-stopped
     volumes:

@@ -9,10 +9,10 @@ from groups.discards import discard_group_item, is_group_discarded
 from groups.models import Group, GroupItem, GroupMembership
 from users.models import ApiToken, ApiTokenScope
 
-from .base import YamtrackApiTestCase
+from .base import MagpieApiTestCase
 
 
-class GroupApiTestCase(YamtrackApiTestCase):
+class GroupApiTestCase(MagpieApiTestCase):
     """A two-member group (user1 owner, user2) plus an outsider."""
 
     def setUp(self):

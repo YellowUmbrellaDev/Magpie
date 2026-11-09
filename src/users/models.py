@@ -764,7 +764,7 @@ class User(AbstractUser):
             "myanimelist": "Import from MyAnimeList",
             "anilist": "Import from AniList",
             "kitsu": "Import from Kitsu",
-            "yamtrack": "Import from Yamtrack",
+            "magpie": "Import from Magpie",
             "hltb": "Import from HowLongToBeat",
             "steam": "Import from Steam",
             "imdb": "Import from IMDB",

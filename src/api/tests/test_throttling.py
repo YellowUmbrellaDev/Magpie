@@ -4,7 +4,7 @@ from unittest.mock import patch
 
 from rest_framework.throttling import SimpleRateThrottle
 
-from .base import YamtrackApiTestCase
+from .base import MagpieApiTestCase
 
 # DRF binds its `THROTTLE_RATES` class attribute at import time, so the rates
 # are patched directly instead of through the settings. Every rate is defined
@@ -17,7 +17,7 @@ _THROTTLE_RATES = {
 }
 
 
-class ThrottleTests(YamtrackApiTestCase):
+class ThrottleTests(MagpieApiTestCase):
     """Verify that exceeding a throttle rate returns HTTP 429."""
 
     @patch.object(SimpleRateThrottle, "THROTTLE_RATES", _THROTTLE_RATES)

@@ -1312,6 +1312,135 @@ wheels = [
 ]
 
 [[package]]
+name = "magpie"
+version = "0.26.3"
+source = { virtual = "." }
+dependencies = [
+    { name = "aiohttp" },
+    { name = "apprise" },
+    { name = "beautifulsoup4" },
+    { name = "celery" },
+    { name = "croniter" },
+    { name = "defusedxml" },
+    { name = "django" },
+    { name = "django-allauth", extra = ["socialaccount"] },
+    { name = "django-celery-beat" },
+    { name = "django-celery-results" },
+    { name = "django-debug-toolbar" },
+    { name = "django-health-check", extra = ["celery", "redis"] },
+    { name = "django-model-utils" },
+    { name = "django-redis" },
+    { name = "django-select2" },
+    { name = "django-simple-history" },
+    { name = "django-widget-tweaks" },
+    { name = "djangorestframework" },
+    { name = "drf-spectacular" },
+    { name = "gunicorn" },
+    { name = "icalendar" },
+    { name = "pillow" },
+    { name = "psycopg", extra = ["binary", "pool"] },
+    { name = "python-decouple" },
+    { name = "redis", extra = ["hiredis"] },
+    { name = "requests" },
+    { name = "requests-ratelimiter" },
+    { name = "supervisor" },
+    { name = "unidecode" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "coverage" },
+    { name = "django-upgrade" },
+    { name = "djlint" },
+    { name = "fakeredis", extra = ["lua"] },
+    { name = "pre-commit" },
+    { name = "pytest-django" },
+    { name = "pytest-playwright" },
+    { name = "ruff" },
+    { name = "tblib" },
+]
+docs = [
+    { name = "mike" },
+    { name = "zensical" },
+]
+lint = [
+    { name = "django-upgrade" },
+    { name = "djlint" },
+    { name = "pre-commit" },
+    { name = "ruff" },
+]
+test = [
+    { name = "coverage" },
+    { name = "fakeredis", extra = ["lua"] },
+    { name = "pytest-django" },
+    { name = "pytest-playwright" },
+    { name = "tblib" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "aiohttp", specifier = "~=3.14.3" },
+    { name = "apprise", specifier = "~=1.12.0" },
+    { name = "beautifulsoup4", specifier = "~=4.15.0" },
+    { name = "celery", specifier = "~=5.6.3" },
+    { name = "croniter", specifier = "~=6.2.4" },
+    { name = "defusedxml", specifier = "~=0.7.1" },
+    { name = "django", specifier = "~=5.2.16" },
+    { name = "django-allauth", extras = ["socialaccount"], specifier = "~=65.16.1" },
+    { name = "django-celery-beat", specifier = "~=2.9.0" },
+    { name = "django-celery-results", specifier = "~=2.6.0" },
+    { name = "django-debug-toolbar", specifier = "~=6.3.0" },
+    { name = "django-health-check", extras = ["celery", "redis"], specifier = "~=4.4.1" },
+    { name = "django-model-utils", specifier = "~=5.0.0" },
+    { name = "django-redis", specifier = "~=6.0.0" },
+    { name = "django-select2", specifier = "~=8.4.8" },
+    { name = "django-simple-history", specifier = "~=3.13.0" },
+    { name = "django-widget-tweaks", specifier = "~=1.5.1" },
+    { name = "djangorestframework", specifier = "~=3.16.1" },
+    { name = "drf-spectacular", specifier = "~=0.29.0" },
+    { name = "gunicorn", specifier = "~=26.0.0" },
+    { name = "icalendar", specifier = "~=7.2.2" },
+    { name = "pillow", specifier = "~=12.3.0" },
+    { name = "psycopg", extras = ["binary", "pool"], specifier = "~=3.3.4" },
+    { name = "python-decouple", specifier = "~=3.8" },
+    { name = "redis", extras = ["hiredis"], specifier = "~=7.4.0" },
+    { name = "requests", specifier = "~=2.34.2" },
+    { name = "requests-ratelimiter", specifier = "~=0.10.0" },
+    { name = "supervisor", specifier = "~=4.3.0" },
+    { name = "unidecode", specifier = "~=1.4.0" },
+]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "coverage", specifier = "~=7.15.3" },
+    { name = "django-upgrade", specifier = "~=1.31.1" },
+    { name = "djlint", specifier = "~=1.44.0" },
+    { name = "fakeredis", extras = ["lua"], specifier = "~=2.35.1" },
+    { name = "pre-commit", specifier = "~=4.6.1" },
+    { name = "pytest-django", specifier = "~=4.12.0" },
+    { name = "pytest-playwright", specifier = "~=0.8.0" },
+    { name = "ruff", specifier = "~=0.16.1" },
+    { name = "tblib", specifier = "~=3.2.2" },
+]
+docs = [
+    { name = "mike", git = "https://github.com/squidfunk/mike.git" },
+    { name = "zensical", specifier = "==0.0.53" },
+]
+lint = [
+    { name = "django-upgrade", specifier = "~=1.31.1" },
+    { name = "djlint", specifier = "~=1.44.0" },
+    { name = "pre-commit", specifier = "~=4.6.1" },
+    { name = "ruff", specifier = "~=0.16.1" },
+]
+test = [
+    { name = "coverage", specifier = "~=7.15.3" },
+    { name = "fakeredis", extras = ["lua"], specifier = "~=2.35.1" },
+    { name = "pytest-django", specifier = "~=4.12.0" },
+    { name = "pytest-playwright", specifier = "~=0.8.0" },
+    { name = "tblib", specifier = "~=3.2.2" },
+]
+
+[[package]]
 name = "markdown"
 version = "3.10.2"
 source = { registry = "https://pypi.org/simple" }
@@ -2546,135 +2675,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/35/a2/8e3becb46433538a38726c948d3399905a4c7cabd0df578ede5dc51f0ec2/wcwidth-0.6.0.tar.gz", hash = "sha256:cdc4e4262d6ef9a1a57e018384cbeb1208d8abbc64176027e2c2455c81313159", size = 159684, upload-time = "2026-02-06T19:19:40.919Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/68/5a/199c59e0a824a3db2b89c5d2dade7ab5f9624dbf6448dc291b46d5ec94d3/wcwidth-0.6.0-py3-none-any.whl", hash = "sha256:1a3a1e510b553315f8e146c54764f4fb6264ffad731b3d78088cdb1478ffbdad", size = 94189, upload-time = "2026-02-06T19:19:39.646Z" },
-]
-
-[[package]]
-name = "yamtrack"
-version = "0.26.3"
-source = { virtual = "." }
-dependencies = [
-    { name = "aiohttp" },
-    { name = "apprise" },
-    { name = "beautifulsoup4" },
-    { name = "celery" },
-    { name = "croniter" },
-    { name = "defusedxml" },
-    { name = "django" },
-    { name = "django-allauth", extra = ["socialaccount"] },
-    { name = "django-celery-beat" },
-    { name = "django-celery-results" },
-    { name = "django-debug-toolbar" },
-    { name = "django-health-check", extra = ["celery", "redis"] },
-    { name = "django-model-utils" },
-    { name = "django-redis" },
-    { name = "django-select2" },
-    { name = "django-simple-history" },
-    { name = "django-widget-tweaks" },
-    { name = "djangorestframework" },
-    { name = "drf-spectacular" },
-    { name = "gunicorn" },
-    { name = "icalendar" },
-    { name = "pillow" },
-    { name = "psycopg", extra = ["binary", "pool"] },
-    { name = "python-decouple" },
-    { name = "redis", extra = ["hiredis"] },
-    { name = "requests" },
-    { name = "requests-ratelimiter" },
-    { name = "supervisor" },
-    { name = "unidecode" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "coverage" },
-    { name = "django-upgrade" },
-    { name = "djlint" },
-    { name = "fakeredis", extra = ["lua"] },
-    { name = "pre-commit" },
-    { name = "pytest-django" },
-    { name = "pytest-playwright" },
-    { name = "ruff" },
-    { name = "tblib" },
-]
-docs = [
-    { name = "mike" },
-    { name = "zensical" },
-]
-lint = [
-    { name = "django-upgrade" },
-    { name = "djlint" },
-    { name = "pre-commit" },
-    { name = "ruff" },
-]
-test = [
-    { name = "coverage" },
-    { name = "fakeredis", extra = ["lua"] },
-    { name = "pytest-django" },
-    { name = "pytest-playwright" },
-    { name = "tblib" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "aiohttp", specifier = "~=3.14.3" },
-    { name = "apprise", specifier = "~=1.12.0" },
-    { name = "beautifulsoup4", specifier = "~=4.15.0" },
-    { name = "celery", specifier = "~=5.6.3" },
-    { name = "croniter", specifier = "~=6.2.4" },
-    { name = "defusedxml", specifier = "~=0.7.1" },
-    { name = "django", specifier = "~=5.2.16" },
-    { name = "django-allauth", extras = ["socialaccount"], specifier = "~=65.16.1" },
-    { name = "django-celery-beat", specifier = "~=2.9.0" },
-    { name = "django-celery-results", specifier = "~=2.6.0" },
-    { name = "django-debug-toolbar", specifier = "~=6.3.0" },
-    { name = "django-health-check", extras = ["celery", "redis"], specifier = "~=4.4.1" },
-    { name = "django-model-utils", specifier = "~=5.0.0" },
-    { name = "django-redis", specifier = "~=6.0.0" },
-    { name = "django-select2", specifier = "~=8.4.8" },
-    { name = "django-simple-history", specifier = "~=3.13.0" },
-    { name = "django-widget-tweaks", specifier = "~=1.5.1" },
-    { name = "djangorestframework", specifier = "~=3.16.1" },
-    { name = "drf-spectacular", specifier = "~=0.29.0" },
-    { name = "gunicorn", specifier = "~=26.0.0" },
-    { name = "icalendar", specifier = "~=7.2.2" },
-    { name = "pillow", specifier = "~=12.3.0" },
-    { name = "psycopg", extras = ["binary", "pool"], specifier = "~=3.3.4" },
-    { name = "python-decouple", specifier = "~=3.8" },
-    { name = "redis", extras = ["hiredis"], specifier = "~=7.4.0" },
-    { name = "requests", specifier = "~=2.34.2" },
-    { name = "requests-ratelimiter", specifier = "~=0.10.0" },
-    { name = "supervisor", specifier = "~=4.3.0" },
-    { name = "unidecode", specifier = "~=1.4.0" },
-]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "coverage", specifier = "~=7.15.3" },
-    { name = "django-upgrade", specifier = "~=1.31.1" },
-    { name = "djlint", specifier = "~=1.44.0" },
-    { name = "fakeredis", extras = ["lua"], specifier = "~=2.35.1" },
-    { name = "pre-commit", specifier = "~=4.6.1" },
-    { name = "pytest-django", specifier = "~=4.12.0" },
-    { name = "pytest-playwright", specifier = "~=0.8.0" },
-    { name = "ruff", specifier = "~=0.16.1" },
-    { name = "tblib", specifier = "~=3.2.2" },
-]
-docs = [
-    { name = "mike", git = "https://github.com/squidfunk/mike.git" },
-    { name = "zensical", specifier = "==0.0.53" },
-]
-lint = [
-    { name = "django-upgrade", specifier = "~=1.31.1" },
-    { name = "djlint", specifier = "~=1.44.0" },
-    { name = "pre-commit", specifier = "~=4.6.1" },
-    { name = "ruff", specifier = "~=0.16.1" },
-]
-test = [
-    { name = "coverage", specifier = "~=7.15.3" },
-    { name = "fakeredis", extras = ["lua"], specifier = "~=2.35.1" },
-    { name = "pytest-django", specifier = "~=4.12.0" },
-    { name = "pytest-playwright", specifier = "~=0.8.0" },
-    { name = "tblib", specifier = "~=3.2.2" },
 ]
 
 [[package]]

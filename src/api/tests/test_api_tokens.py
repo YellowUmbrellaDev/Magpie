@@ -7,10 +7,10 @@ from django.utils import timezone
 from lists.models import CustomList
 from users.models import ApiToken, ApiTokenScope
 
-from .base import YamtrackApiTestCase
+from .base import MagpieApiTestCase
 
 
-class ApiTokenAuthenticationTests(YamtrackApiTestCase):
+class ApiTokenAuthenticationTests(MagpieApiTestCase):
     """ApiToken credentials authenticate and enforce their scope."""
 
     def setUp(self):

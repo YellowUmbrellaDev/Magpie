@@ -15,7 +15,7 @@ from integrations.imports.helpers import MediaImportError, MediaImportUnexpected
 
 logger = logging.getLogger(__name__)
 
-# Letterboxd uses a 0.5-5 star rating; Yamtrack scores on a 0-10 scale.
+# Letterboxd uses a 0.5-5 star rating; Magpie scores on a 0-10 scale.
 LETTERBOXD_MIN_RATING = 0.5
 LETTERBOXD_MAX_RATING = 5
 LETTERBOXD_SCORE_SCALE = 2
@@ -246,7 +246,7 @@ class LetterboxdImporter:
         return instance
 
     def _parse_rating(self, rating_str):
-        """Parse a Letterboxd 0.5-5 rating into Yamtrack's 0-10 score scale."""
+        """Parse a Letterboxd 0.5-5 rating into Magpie's 0-10 score scale."""
         if not rating_str or rating_str.strip() == "":
             return None
 

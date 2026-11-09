@@ -32,8 +32,8 @@ SOURCES_CONFIG = {
         "name": "SIMKL",
         "logo": static("img/simkl-logo.png"),
     },
-    "yamtrack": {
-        "name": "Yamtrack",
+    "magpie": {
+        "name": "Magpie",
         "logo": static("favicon/apple-touch-icon.png"),
     },
     "hltb": {

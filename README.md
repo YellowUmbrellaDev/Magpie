@@ -1,106 +1,111 @@
 <!-- --8<-- [start:docs-index-intro] -->
 
+<p align="center">
+  <img src="src/static/favicon/logo.svg" alt="Magpie" width="140">
+</p>
+
 # Magpie
 
-![App Tests](https://github.com/FuzzyGrim/Yamtrack/actions/workflows/app-tests.yml/badge.svg)
-![Docker Image](https://github.com/FuzzyGrim/Yamtrack/actions/workflows/docker-image.yml/badge.svg)
-![CodeFactor](https://www.codefactor.io/repository/github/fuzzygrim/yamtrack/badge)
-![Codecov](https://codecov.io/github/FuzzyGrim/Yamtrack/branch/dev/graph/badge.svg?token=PWUG660120)
+![App Tests](https://github.com/SIGTERM-015/Magpie/actions/workflows/app-tests.yml/badge.svg)
+![Docker Image](https://github.com/SIGTERM-015/Magpie/actions/workflows/docker-image.yml/badge.svg)
 ![GitHub](https://img.shields.io/badge/license-AGPL--3.0-blue)
 
-Magpie is a self hosted media tracker for movies, tv shows, anime, manga, video games, books, comics, and board games.
+Magpie is a self-hosted media tracker for movies, TV shows, anime, manga, video games, books, comics and board games. You can track on your own or with friends, share a public profile, and let it pick what to watch next.
+
+Magpie is a fork of [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) by [FuzzyGrim](https://github.com/FuzzyGrim). Everything Yamtrack does well (providers, imports, calendar, notifications, media server integrations) comes from there. Magpie builds social tracking, discovery and an API on top of it and now follows its own roadmap. It won't be merged back upstream.
 
 <!-- --8<-- [end:docs-index-intro] -->
 
 ## 📚 Documentation
 
-The full documentation is available at [fuzzygrim.github.io/Yamtrack](https://fuzzygrim.github.io/Yamtrack/).
+The documentation lives in [`docs/`](docs/) and is published at [sigterm-015.github.io/Magpie](https://sigterm-015.github.io/Magpie/).
 
 <!-- --8<-- [start:docs-index-body] -->
 
-## 🚀 Demo
-
-You can try the app at [yamtrack.fuzzygrim.com](https://yamtrack.fuzzygrim.com) using the username `demo` and password `demo`.
-
 ## ✨ Features
 
-- 🎬 Track movies, tv shows, anime, manga, games, books, comics, and board games.
-- 📺 Track each season of a tv show individually and episodes watched.
-- ⭐ Save score, status, progress, repeats (rewatches, rereads...), start and end dates, or write a note.
-- 📈 Keep a tracking history with each action with a media, such as when you added it, when you started it, when you started watching it again, etc.
-- ✏️ Create custom media entries, for niche media that cannot be found by the supported APIs.
-- 📂 Create personal lists to organize your media for any purpose, add other members to collaborate on your lists.
-- 📅 Keep up with your upcoming media with a calendar, which can be subscribed to in external applications using a iCalendar (.ics) URL.
-- 🔔 Receive notifications of upcoming releases via Apprise (supports Discord, Telegram, ntfy, Slack, email, and many more).
-- 🐳 Easy deployment with Docker via docker-compose with SQLite or PostgreSQL.
-- 👥 Multi-users functionality allowing individual accounts with personalized tracking.
-- 🔑 Flexible authentication options including OIDC and 100+ social providers (Google, GitHub, Discord, etc.) via django-allauth.
-- 🦀 Integration with [Jellyfin](https://jellyfin.org/), [Plex](https://plex.tv/) and [Emby](https://emby.media/) to automatically track new media watched.
-- 📥 Import from [Trakt](https://trakt.tv/), [Simkl](https://simkl.com/), [MyAnimeList](https://myanimelist.net/), [AniList](https://anilist.co/) and [Kitsu](https://kitsu.app/) with support for periodic automatic imports.
-- 📊 Export all your tracked media to a CSV file and import it back.
+### Track everything
 
-## 📱 Screenshots
+- 🎬 Movies, TV shows, anime, manga, games, books, comics and board games, all in one library.
+- 📺 Track each TV season on its own, down to individual episodes.
+- ⭐ Save score, status, progress, repeats, start and end dates, and a comment.
+- 📈 Keep a full history of every change to every entry.
+- ✏️ Add custom entries for media the providers don't know about.
+- 📂 Create lists and invite others to collaborate on them.
+- 📅 Upcoming releases on a calendar, also available as an iCalendar (.ics) feed.
+- 🔔 Release notifications through Apprise (Discord, Telegram, ntfy, Slack, email and more).
 
-| Homepage                                                                                       | Calendar                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/homepage.png?v2" alt="Homepage" /> | <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/calendar.png" alt="calendar" /> |
+### Together
 
-| Media List Grid                                                                                    | Media List Table                                                                                     |
-| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/medialist_grid.png" alt="List Grid" /> | <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/medialist_table.png" alt="List Table" /> |
+- 👥 **Groups.** Track a show, a game or a book with your partner or friends. The group has its own progress, and logging a session also updates each participant's personal record. It never rolls anyone back or reopens something they've already finished.
+- ➕ **Add to a group from any poster**, Spotify-style, and pick who took part each time you log progress.
+- 📊 **Group stats** compare scores and genres between members.
 
-| Media Details                                                                                         | Tracking                                                                                    |
-| ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/media_details.png" alt="Media Details" /> | <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/tracking.png" alt="Tracking" /> |
+### Public profile
 
-| Season Details                                                                                          | Tracking Episodes                                                                                            |
-| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/season_details.png" alt="Season Details" /> | <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/tracking_episode.png" alt="Tracking Episodes" /> |
+- 🪪 **A profile at `/<username>`** with avatar, activity heatmap, a diary of what you've been watching and reading, and your reviews.
+- 🗂️ **Shelves.** Hand-picked showcases like your top 5, mixing any media types.
+- 🔒 **Per-section visibility.** Profiles are open by default, and you can hide the heatmap, shelves or reviews one by one.
+- 💌 **Recommend to a friend** from their profile, and get suggestions in your own inbox.
 
-| Lists                                                                                 | Statistics                                                                                      |
-| ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/lists.png" alt="Lists" /> | <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/statistics.png" alt="Statistics" /> |
+### Discovery
 
-| Create Manual Entries                                                                                         | Import Data                                                                                       |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/create_custom.png" alt="Create Manual Entries" /> | <img src="https://cdn.fuzzygrim.com/file/fuzzygrim/yamtrack/import_data.png" alt="Import Data" /> |
+- 🎲 **Roulette** for when you can't choose. It only draws from your planned list, filtered by type, genre, movie length or game mode (single-player, co-op, competitive). It works for you or for a whole group.
+- 🧭 **Recommendations** based on your scores, genres and history. Group recommendations weigh every member equally.
+- 🙅 **Not interested.** Hide a title from the roulette and recommendations, with undo and a Discarded tab to bring it back.
+
+### Integrations
+
+- 🦀 [Jellyfin](https://jellyfin.org/), [Plex](https://plex.tv/) and [Emby](https://emby.media/) webhooks track what you watch automatically, plus a generic scrobble webhook for anything else.
+- 📥 Import from [Trakt](https://trakt.tv/), [Simkl](https://simkl.com/), [MyAnimeList](https://myanimelist.net/), [AniList](https://anilist.co/), [Kitsu](https://kitsu.app/), [Letterboxd](https://letterboxd.com/), [GoodReads](https://www.goodreads.com/), [Steam](https://store.steampowered.com/), [IMDb](https://www.imdb.com/) and [HowLongToBeat](https://howlongtobeat.com/), with periodic automatic imports where the source allows it.
+- 📊 Export everything to CSV and import it back. Yamtrack CSV backups import as-is. You can also export to Letterboxd.
+- 🔌 **REST API** (`/api/v1/`) with an OpenAPI schema ([`openapi.yaml`](openapi.yaml)) and named personal tokens with separate read and write scopes that you can revoke at any time.
+
+### Self-hosted
+
+- 🐳 Docker Compose with SQLite or PostgreSQL.
+- 📱 Installable as an app (PWA) on phone and desktop, with an offline page.
+- 🔑 Multiple users, plus OIDC and 100+ social login providers through django-allauth.
 
 ## 🐳 Installing with Docker
 
-Download the default `docker-compose.yml` file from the repository, update the environment values, and start Magpie:
+Download the `docker-compose.yml` file from the repository, update the environment values, and start Magpie:
 
 ```bash
+curl -LO https://raw.githubusercontent.com/SIGTERM-015/Magpie/dev/docker-compose.yml
 docker compose up -d
 ```
 
-The default Compose file uses SQLite, which is enough for most personal installs. For full SQLite, PostgreSQL, and reverse proxy setup instructions, see the [Setup documentation](https://fuzzygrim.github.io/Yamtrack/release/setup/).
+The default Compose file uses SQLite, which is enough for most personal installs. For PostgreSQL and reverse proxy setups, see the [setup docs](docs/setup.md). All settings are listed in [environment variables](docs/env-variables.md).
+
+### Coming from Yamtrack
+
+Export your data from Yamtrack (**Settings → Export → CSV**) and import that file in Magpie (**Settings → Import → Magpie CSV**).
 
 ## 💻 Development
 
-Development instructions are available in the [Development documentation](https://fuzzygrim.github.io/Yamtrack/release/development/).
+See the [development docs](docs/development.md).
 
-## 💪 Support the Project
+## 💪 Support
 
-There are many ways you can support Magpie's development:
+### 🐛 Bugs and ideas
 
-### ⭐ Star the Project
-
-The simplest way to show your support is to star the repository on GitHub. It helps increase visibility and shows appreciation for the work.
-
-### 🐛 Bug Reports
-
-Found a bug? Open an [issue](https://github.com/FuzzyGrim/Yamtrack/issues) on GitHub with detailed steps to reproduce it. Quality bug reports are incredibly valuable for improving stability.
-
-### 💡 Feature Suggestions
-
-Have ideas for new features? Share them through [GitHub issues](https://github.com/FuzzyGrim/Yamtrack/issues). Your feedback helps shape the future of Yamtrack.
+Open an [issue](https://github.com/SIGTERM-015/Magpie/issues). Steps to reproduce make bugs much faster to fix.
 
 ### 🧪 Contributing
 
-Pull requests are welcome! Whether it's fixing typos, improving documentation, or adding new features, your contributions help make Yamtrack better for everyone.
+Pull requests are welcome, from typos to new features.
 
 ### ☕ Donate
 
-If you'd like to support the project financially:
+Most of the work that makes Magpie possible was done by FuzzyGrim on Yamtrack. If you'd like to support it financially, donate to them:
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/fuzzygrim)
+
+<!-- --8<-- [end:docs-index-body] -->
+
+## 📜 License and credits
+
+Magpie is licensed under the [AGPL-3.0](LICENSE), like Yamtrack.
+
+- Based on [Yamtrack](https://github.com/FuzzyGrim/Yamtrack) by FuzzyGrim and its contributors.

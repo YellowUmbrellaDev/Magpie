@@ -15,7 +15,7 @@ from app.models import (
     Season,
 )
 from integrations.imports import (
-    yamtrack,
+    magpie,
 )
 
 mock_path = Path(__file__).resolve().parent.parent / "mock_data"
@@ -24,15 +24,15 @@ app_mock_path = (
 )
 
 
-class ImportYamtrack(TestCase):
-    """Test importing media from Yamtrack CSV."""
+class ImportMagpie(TestCase):
+    """Test importing media from Magpie CSV."""
 
     def setUp(self):
         """Create user for the tests."""
         self.credentials = {"username": "test", "password": "12345"}
         self.user = get_user_model().objects.create_user(**self.credentials)
-        with Path(mock_path / "import_yamtrack.csv").open("rb") as file:
-            self.import_results = yamtrack.importer(file, self.user, "new")
+        with Path(mock_path / "import_magpie.csv").open("rb") as file:
+            self.import_results = magpie.importer(file, self.user, "new")
 
     def test_import_counts(self):
         """Test basic counts of imported media."""
@@ -103,7 +103,7 @@ class ImportYamtrack(TestCase):
             },
         ]
 
-        importer = yamtrack.YamtrackImporter(None, self.user, "new")
+        importer = magpie.MagpieImporter(None, self.user, "new")
 
         for row in test_rows:
             # Make copies of original rows to verify they're modified
@@ -121,7 +121,7 @@ class ImportYamtrack(TestCase):
             self.assertNotEqual(row["image"], original_row["image"])
 
 
-class ImportYamtrackEpisodeHistoryDate(TestCase):
+class ImportMagpieEpisodeHistoryDate(TestCase):
     """Test that episode history dates fall back to end_date (issue #990)."""
 
     def setUp(self):
@@ -132,11 +132,11 @@ class ImportYamtrackEpisodeHistoryDate(TestCase):
     def test_episode_history_date_falls_back_to_end_date(self):
         """Episodes have no progressed_at, so history_date should use end_date.
 
-        Real Yamtrack exports leave the progressed_at column blank for episodes
+        Real Magpie exports leave the progressed_at column blank for episodes
         (the model has no such field). Without this fallback the activity
         heatmap credits the import day instead of the day watched (issue #990).
         """
-        importer = yamtrack.YamtrackImporter(None, self.user, "new")
+        importer = magpie.MagpieImporter(None, self.user, "new")
         row = {
             "media_id": "1668",
             "source": "tmdb",
@@ -163,15 +163,15 @@ class ImportYamtrackEpisodeHistoryDate(TestCase):
         )
 
 
-class ImportYamtrackPartials(TestCase):
-    """Test importing yamtrack media with no ID."""
+class ImportMagpiePartials(TestCase):
+    """Test importing magpie media with no ID."""
 
     def setUp(self):
         """Create user for the tests."""
         self.credentials = {"username": "test", "password": "12345"}
         self.user = get_user_model().objects.create_user(**self.credentials)
-        with Path(mock_path / "import_yamtrack_partials.csv").open("rb") as file:
-            self.import_results = yamtrack.importer(file, self.user, "new")
+        with Path(mock_path / "import_magpie_partials.csv").open("rb") as file:
+            self.import_results = magpie.importer(file, self.user, "new")
 
     def test_import_counts(self):
         """Test basic counts of imported media."""
@@ -209,7 +209,7 @@ class ImportYamtrackPartials(TestCase):
             },
         ]
 
-        importer = yamtrack.YamtrackImporter(None, self.user, "new")
+        importer = magpie.MagpieImporter(None, self.user, "new")
 
         for row in test_rows:
             original_row = row.copy()

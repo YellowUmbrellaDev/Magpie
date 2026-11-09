@@ -50,7 +50,7 @@ class EpisodeDetails:
 _DEFAULT_EPISODE_DETAILS = EpisodeDetails()
 
 
-class YamtrackApiTestCase(APITestCase):
+class MagpieApiTestCase(APITestCase):
     """Shared setup and request helpers for API endpoint tests."""
 
     def setUp(self):

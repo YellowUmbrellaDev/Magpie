@@ -1,8 +1,8 @@
-from .base import YamtrackApiTestCase
+from .base import MagpieApiTestCase
 from .helpers import check_statistics_structure
 
 
-class StatisticsTests(YamtrackApiTestCase):
+class StatisticsTests(MagpieApiTestCase):
     """Validate statistics endpoint contracts."""
 
     def test_statistics_unauthenticated_returns_forbidden(self):

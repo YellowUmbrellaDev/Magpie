@@ -2,7 +2,7 @@
 # Run the Django test suite on the 0-0-0 host. Usage: scripts/remote-test [test labels...]
 set -euo pipefail
 host=${REMOTE_TEST_HOST:-0-0-0}
-dest=ci/yamtrack
+dest=ci/magpie
 cd "$(dirname "$0")/.."
 ssh "$host" "mkdir -p $dest"
 rsync -az --delete --exclude .git --exclude .venv --exclude src/db --exclude __pycache__ ./ "$host:$dest/"

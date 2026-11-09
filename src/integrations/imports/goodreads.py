@@ -14,7 +14,7 @@ from integrations.imports.helpers import MediaImportError, MediaImportUnexpected
 
 logger = logging.getLogger(__name__)
 
-# GoodReads uses a 1-5 star rating; Yamtrack scores on a 0-10 scale.
+# GoodReads uses a 1-5 star rating; Magpie scores on a 0-10 scale.
 GOODREADS_MIN_RATING = 1
 GOODREADS_MAX_RATING = 5
 GOODREADS_SCORE_SCALE = 2
@@ -100,7 +100,7 @@ class GoodReadsImporter:
         return imported_counts, deduplicated_messages
 
     def _row_description(self, row):
-        """Return a useful label for warnings without assuming Yamtrack fields."""
+        """Return a useful label for warnings without assuming Magpie fields."""
         title = row.get("Title")
         book_id = row.get("Book Id")
 
@@ -115,7 +115,7 @@ class GoodReadsImporter:
     def _process_row(self, row):
         """Process a single row from the CSV file."""
         # Skip early (before hitting the provider) when the shelf can't be
-        # mapped to a Yamtrack status.
+        # mapped to a Magpie status.
         if self._determine_status(row) is None:
             shelf = row["Exclusive Shelf"]
             self.warnings.append(
@@ -207,7 +207,7 @@ class GoodReadsImporter:
         return status.value if status else None
 
     def _parse_rating(self, raw):
-        """Parse a GoodReads 1-5 rating into Yamtrack's 0-10 score scale.
+        """Parse a GoodReads 1-5 rating into Magpie's 0-10 score scale.
 
         GoodReads exports the rating as an integer ("5") in older files and as a
         decimal ("5.0") in newer ones. Empty, "0", out-of-range or malformed

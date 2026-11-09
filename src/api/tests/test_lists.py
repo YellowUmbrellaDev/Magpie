@@ -2,11 +2,11 @@ from django.urls import reverse
 
 from lists.models import CustomList, CustomListItem
 
-from .base import YamtrackApiTestCase
+from .base import MagpieApiTestCase
 from .helpers import check_complete_lists_structure, check_pagination_structure
 
 
-class ListsTests(YamtrackApiTestCase):
+class ListsTests(MagpieApiTestCase):
     """Validate list endpoints and basic side effects."""
 
     def test_lists_get_returns_paginated_payload(self):

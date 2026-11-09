@@ -28,7 +28,7 @@ Each working branch is developed in its own git worktree, so several can be
 open in parallel. Observed convention:
 
 ```
-/home/sigterm/.worktrees/yamtrack-<id>
+/home/sigterm/.worktrees/magpie-<id>
 ```
 
 **Warning: never create worktrees under `/tmp`.** They are lost on machine
@@ -67,7 +67,7 @@ git push origin dev integ/noche docs/product-grill
 
 # 7. Clean up: remove the worktree, delete the working and throwaway
 #    branches, delete the remote branch.
-git worktree remove /home/sigterm/.worktrees/yamtrack-<id>
+git worktree remove /home/sigterm/.worktrees/magpie-<id>
 git branch -d feat/eXX-description
 git branch -d rebase/<id>
 git push origin --delete feat/eXX-description
@@ -112,7 +112,7 @@ work is safely on `dev`:
 git merge-base --is-ancestor <sha> dev && echo integrated
 
 # The worktree must have no uncommitted changes.
-git -C /home/sigterm/.worktrees/yamtrack-<id> status --porcelain
+git -C /home/sigterm/.worktrees/magpie-<id> status --porcelain
 # (empty output = clean)
 ```
 

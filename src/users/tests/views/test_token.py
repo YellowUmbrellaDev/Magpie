@@ -49,20 +49,20 @@ class RegenerateTokenTests(TestCase):
         self.assertEqual(len(messages), 1)
         self.assertIn("Token regenerated successfully", str(messages[0]))
 
-    @override_settings(URLS=["https://yamtrack.example.com:8924"])
+    @override_settings(URLS=["https://magpie.example.com:8924"])
     def test_integrations_uses_configured_webhook_urls(self):
         """Test copied webhook URLs use the configured public app URL."""
         response = self.client.get(reverse("integrations"))
 
         self.assertContains(
             response,
-            "https://yamtrack.example.com:8924/webhook/jellyfin/initial_token",
+            "https://magpie.example.com:8924/webhook/jellyfin/initial_token",
         )
         self.assertContains(
             response,
-            "https://yamtrack.example.com:8924/webhook/plex/initial_token",
+            "https://magpie.example.com:8924/webhook/plex/initial_token",
         )
         self.assertContains(
             response,
-            "https://yamtrack.example.com:8924/webhook/emby/initial_token",
+            "https://magpie.example.com:8924/webhook/emby/initial_token",
         )

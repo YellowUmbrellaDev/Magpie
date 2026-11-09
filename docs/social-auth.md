@@ -1,14 +1,14 @@
 # Social Authentication
 
-YamTrack supports a variety of authentication methods through [django-allauth](https://docs.allauth.org/en/dev/socialaccount/providers/index.html), allowing you to integrate with popular social providers and identity management systems.
+Magpie supports a variety of authentication methods through [django-allauth](https://docs.allauth.org/en/dev/socialaccount/providers/index.html), allowing you to integrate with popular social providers and identity management systems.
 
 ## Getting Started
 
-Social authentication in YamTrack is configured through environment variables. You'll need to:
+Social authentication in Magpie is configured through environment variables. You'll need to:
 
 1. Enable the social providers you want to use
 2. Configure the provider-specific settings
-3. Set up your provider to work with YamTrack
+3. Set up your provider to work with Magpie
 
 ## Enabling Social Providers
 
@@ -43,12 +43,12 @@ SOCIALACCOUNT_PROVIDERS={"github":{"SCOPE":["user","repo","read:org"]}}
 ### OpenID Connect (Authelia, Authentik, Keycloak, etc.)
 
 1. In your OIDC provider, create a new application/client:
-   - Set the redirect URI to: `https://yamtrack.yourdomain.com/accounts/oidc/[provider_id]/login/callback/`
+   - Set the redirect URI to: `https://magpie.yourdomain.com/accounts/oidc/[provider_id]/login/callback/`
    - Replace `[provider_id]` with the value you set in the `provider_id` field in your configuration
-   - For example: `https://yamtrack.yourdomain.com/accounts/oidc/authelia/login/callback/`
+   - For example: `https://magpie.yourdomain.com/accounts/oidc/authelia/login/callback/`
    - Set `token_endpoint_auth_method` to `client_secret_post`.
 
-2. Configure YamTrack with the client ID and secret from your provider
+2. Configure Magpie with the client ID and secret from your provider
 
 #### Authentik Example
 
@@ -56,20 +56,20 @@ In Authentik:
 
 1. Create an OAuth2/OpenID Provider (under Applications/Providers) with these settings:
    - Name: Magpie
-   - Redirect URI: `https://yamtrack.yourdomain.com/accounts/oidc/authentik/login/callback/`
+   - Redirect URI: `https://magpie.yourdomain.com/accounts/oidc/authentik/login/callback/`
 
-2. In YamTrack, configure:
+2. In Magpie, configure:
 
     ```bash
     SOCIAL_PROVIDERS=allauth.socialaccount.providers.openid_connect
-    SOCIALACCOUNT_PROVIDERS={"openid_connect":{"OAUTH_PKCE_ENABLED":true,"APPS":[{"provider_id":"authentik","name":"Authentik","client_id":"<Client ID>","secret":"<Client Secret>","settings":{"server_url":"https://authentik.yourdomain.com/application/o/yamtrack/.well-known/openid-configuration"}}]}}
+    SOCIALACCOUNT_PROVIDERS={"openid_connect":{"OAUTH_PKCE_ENABLED":true,"APPS":[{"provider_id":"authentik","name":"Authentik","client_id":"<Client ID>","secret":"<Client Secret>","settings":{"server_url":"https://authentik.yourdomain.com/application/o/magpie/.well-known/openid-configuration"}}]}}
     ```
 
 ## Connecting Social Accounts to Existing Users
 
 To add social authentication to an existing user:
 
-1. Log in to YamTrack with your local username and password
+1. Log in to Magpie with your local username and password
 2. Click the settings icon in the sidebar
 3. Click "Accounts" in the settings menu
 4. In the "Third-Party Connections" section, click "Manage Account Connections"

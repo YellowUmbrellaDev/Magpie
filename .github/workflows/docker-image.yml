@@ -35,7 +35,7 @@ jobs:
         with:
           context: .
           load: true
-          tags: yamtrack:test
+          tags: magpie:test
           cache-from: type=gha
           cache-to: type=gha,mode=max
           provenance: false
@@ -45,25 +45,25 @@ jobs:
 
       - name: Start container
         run: |
-          docker network create yamtrack-test
-          docker run -d --name yamtrack-redis --network yamtrack-test redis:8-alpine
-          docker run -d --name yamtrack --network yamtrack-test \
+          docker network create magpie-test
+          docker run -d --name magpie-redis --network magpie-test redis:8-alpine
+          docker run -d --name magpie --network magpie-test \
             -e TZ=UTC \
             -e SECRET=github-actions-testing-secret \
-            -e REDIS_URL=redis://yamtrack-redis:6379 \
+            -e REDIS_URL=redis://magpie-redis:6379 \
             -p 8000:8000 \
-            yamtrack:test
+            magpie:test
 
       # The image HEALTHCHECK covers database, cache, redis and celery
       - name: Wait for container to become healthy
         run: |
           for _ in $(seq 1 60); do
-            STATUS=$(docker inspect --format '{{.State.Health.Status}}' yamtrack)
+            STATUS=$(docker inspect --format '{{.State.Health.Status}}' magpie)
             if [ "$STATUS" = "healthy" ]; then
               echo "Container is healthy"
               exit 0
             fi
-            if [ "$(docker inspect --format '{{.State.Running}}' yamtrack)" != "true" ]; then
+            if [ "$(docker inspect --format '{{.State.Running}}' magpie)" != "true" ]; then
               echo "::error::Container exited before becoming healthy"
               exit 1
             fi
@@ -88,13 +88,13 @@ jobs:
 
       - name: Check version was baked into the image
         run: |
-          test "$(docker exec yamtrack printenv VERSION)" = "test"
+          test "$(docker exec magpie printenv VERSION)" = "test"
 
       - name: Dump container logs
         if: failure()
         run: |
-          docker logs yamtrack
-          docker logs yamtrack-redis
+          docker logs magpie
+          docker logs magpie-redis
 
   build:
     needs: test
@@ -115,7 +115,7 @@ jobs:
         id: get-version
         run: |
           # Fork-owned versioning: only fork-v* tags count, so the version baked
-          # into the image never reuses an upstream yamtrack release tag.
+          # into the image never reuses an upstream Yamtrack release tag.
           if VERSION=$(git describe --tags --match 'fork-v*' --exact-match 2>/dev/null); then
             echo "Building release $VERSION"
           else

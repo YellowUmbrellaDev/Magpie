@@ -3,7 +3,7 @@ from uuid import UUID
 
 from app.models import MediaTypes, Movie, Sources, Status
 
-from .base import PRIDE_TV_SYNOPSIS, YamtrackApiTestCase
+from .base import PRIDE_TV_SYNOPSIS, MagpieApiTestCase
 from .helpers import (
     check_changes_history_record_structure,
     check_complete_media_structure,
@@ -20,7 +20,7 @@ SEVENTH_TIME_LOOP_TITLE = (
 )
 
 
-class MediaCoreTests(YamtrackApiTestCase):
+class MediaCoreTests(MagpieApiTestCase):
     """Validate media endpoint behavior for core media types."""
 
     def setUp(self):

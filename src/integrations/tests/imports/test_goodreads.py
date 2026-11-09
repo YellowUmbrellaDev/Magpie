@@ -78,7 +78,7 @@ class ImportGoodreads(TestCase):
 
 
 class ParseRating(TestCase):
-    """Test mapping of Goodreads 1-5 ratings onto Yamtrack's 0-10 scale."""
+    """Test mapping of Goodreads 1-5 ratings onto Magpie's 0-10 scale."""
 
     def setUp(self):
         """Create user and importer for the tests."""
@@ -114,7 +114,7 @@ class ParseRating(TestCase):
 
 
 class DetermineStatus(TestCase):
-    """Test mapping of Goodreads exclusive shelves to Yamtrack statuses."""
+    """Test mapping of Goodreads exclusive shelves to Magpie statuses."""
 
     def setUp(self):
         """Create user and importer for the tests."""

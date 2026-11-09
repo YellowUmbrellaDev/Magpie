@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 from app.models import MediaTypes, Sources
 
-from .base import PRIDE_TV_SYNOPSIS, YamtrackApiTestCase
+from .base import PRIDE_TV_SYNOPSIS, MagpieApiTestCase
 from .helpers import (
     check_changes_history_entry_structure,
     check_complete_media_structure,
@@ -13,7 +13,7 @@ from .helpers import (
 )
 
 
-class MediaSeasonTests(YamtrackApiTestCase):
+class MediaSeasonTests(MagpieApiTestCase):
     """Validate season endpoint contracts."""
 
     def test_season_endpoints_reject_non_tv_media_type(self):

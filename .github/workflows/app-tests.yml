@@ -71,8 +71,11 @@ jobs:
           if [ -n "${{ secrets.COMICVINE_API }}" ]; then echo "COMICVINE_API=${{ secrets.COMICVINE_API }}" >> $GITHUB_ENV; fi
 
       - name: Run Tests
+        shell: bash
         run: |
-          uv run coverage run src/manage.py test --parallel
+          uv run coverage run src/manage.py test src --parallel 2>&1 | tee test-output.txt
+          # An empty discovery exits 0, so fail unless tests actually ran.
+          grep -Eq '^Ran [1-9][0-9]* tests?' test-output.txt
 
       - name: Build Coverage Report
         run: |
